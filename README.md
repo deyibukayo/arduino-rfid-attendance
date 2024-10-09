@@ -10,9 +10,28 @@ Install [Python](https://www.python.org/) from its official site then install th
  - ```openpyxl```
  - ```pyserial```
 
+### Arduino
+
 Install [Arduino IDE](https://www.arduino.cc/) and add the libraries found on the [libraries.txt](https://github.com/deyibukayo/arduino-rfid-attendance/blob/main/ino/libraries.txt)
 - LiquidCrystal I2C
 - MFRC522
+
+## Wiring Diagram
+### I2C Display -> Arduino
+
+- GND -> GND
+- VCC -> 5V
+- SDA -> SDA
+- SCL -> SCL
+
+### MFRC522 -> Arduino
+- SDA -> 10
+- SCK -> 13
+- MOSI -> 11
+- MISO -> 12
+- GND -> GND
+- RST -> 9
+- 3.3V -> 3.3V
 
 ## Usage
 
