@@ -1,0 +1,2 @@
+MFRC522 by GithubCommunity v1.4.11
+LiquidCrystal I2C by Frank de Brabander v1.1.2
