@@ -17,14 +17,14 @@ Install [Arduino IDE](https://www.arduino.cc/) and add the libraries found on th
 - MFRC522
 
 ## Wiring Diagram
-### I2C Display -> Arduino
+### I2C Display -> Arduino Uno
 
 - GND -> GND
 - VCC -> 5V
 - SDA -> SDA
 - SCL -> SCL
 
-### MFRC522 -> Arduino
+### MFRC522 -> Arduino Uno
 - SDA -> 10
 - SCK -> 13
 - MOSI -> 11
