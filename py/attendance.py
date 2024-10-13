@@ -18,10 +18,9 @@ student_data = {'43c09e0c': 'Student One',
 # Create a new Excel workbook and add a sheet
 workbook = openpyxl.Workbook()
 sheet = workbook.active
-sheet.title = "UID Data"
-# Add header row: Timestamp and UID Data
-sheet.append(["Timestamp", "UID Data"])
-
+sheet.title = "Attendance Data"
+# Add header row: Timestamp and Name
+sheet.append(["Timestamp", "Name"])
 
 # Run an infinite loop to read from the serial port and save to Excel
 try:
@@ -37,9 +36,6 @@ try:
                 else:
                     line = 'Student Unknown'
                 
-                # Send data back to Arduino for LCD printing
-                ser.write(line.encode())
-                
                 # Print the received UID and timestamp to the console
                 print(f"Received UID: {line} at {timestamp}")
 
@@ -47,7 +43,7 @@ try:
                 sheet.append([timestamp, line])
 
                 # Save the workbook after each entry
-                workbook.save("RFID_Data_Timestamped.xlsx")
+                workbook.save("Attendance.xlsx")
 
 except KeyboardInterrupt:
     # If the user interrupts the program, save the workbook and close the serial port
