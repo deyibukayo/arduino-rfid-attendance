@@ -7,7 +7,7 @@
 #define RST_PIN 9
 
 MFRC522 mfrc522(SS_PIN, RST_PIN); // RFID Object
-LiquidCrystal_I2C lcd(0x27, 16, 2); // LCD I2C Object
+// LiquidCrystal_I2C lcd(0x27, 16, 2); // LCD I2C Object
 
 String uidString = ""; // Global var for RFID UID value
 
@@ -21,22 +21,22 @@ void setup() {
   Serial.println("Place your RFID tag on the reader...");
 
   // Initialize the LCD
-  lcd.init();
-  lcd.backlight();
-  lcd.clear();
-  lcd.setCursor(0, 0);
+  // lcd.init();
+  // lcd.backlight();
+  // lcd.clear();
+  // lcd.setCursor(0, 0);
 }
 
 void loop() {
   // Check if data is available to read from the serial port
-  if (Serial.available() > 0) {
-    String receivedData = Serial.readStringUntil('\n');  // Read the incoming data until a newline character
-    lcd.clear();
-    lcd.setCursor(0, 0);
-    lcd.print("Hello!");
-    lcd.setCursor(0, 1);
-    lcd.print(receivedData);  // Print the received data back to the Serial Monitor
-  }
+  // if (Serial.available() > 0) {
+  //   String receivedData = Serial.readStringUntil('\n');  // Read the incoming data until a newline character
+  //   lcd.clear();
+  //   lcd.setCursor(0, 0);
+  //   lcd.print("Hello!");
+  //   lcd.setCursor(0, 1);
+  //   lcd.print(receivedData);  // Print the received data back to the Serial Monitor
+  // }
 
   if (!mfrc522.PICC_IsNewCardPresent()) { return; } // Check for card
   if (!mfrc522.PICC_ReadCardSerial()) { return; } // Read card if found
@@ -52,6 +52,4 @@ void loop() {
   }
   Serial.println(uidString); // Print to serial
   mfrc522.PICC_HaltA(); // Stops the sensor from reading further
-
-  // lcd.print(uidString);
 }
